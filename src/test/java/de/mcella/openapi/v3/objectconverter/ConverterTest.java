@@ -1,11 +1,6 @@
 package de.mcella.openapi.v3.objectconverter;
 
-import org.junit.Test;
-
-import de.mcella.openapi.v3.objectconverter.Converter;
-import de.mcella.openapi.v3.objectconverter.ObjectConverterException;
-import de.mcella.openapi.v3.objectconverter.ObjectConverterMain;
-
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,11 +11,13 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
-import java.io.File;
+
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import org.junit.Test;
 
 import static de.mcella.openapi.v3.objectconverter.Converter.OPENAPI_FILE_NAME;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.hasItem;
 
 public class ConverterTest {
 
