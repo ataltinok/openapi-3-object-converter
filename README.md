@@ -1,7 +1,6 @@
 # Java class conversion to OpenAPI 3 YAML Schema Object
 
-This project consists of a Java application used for converting a Java class to a free-form object in OpenAPI 3 YAML 
-Schema Object definition.
+This project consists of a Java application used for converting a Java class to a free-form object in OpenAPI 3 YAML Schema Object definition.
 
 This implementation is an extension of the free-form query parameter definition in OpenAPI 3 specification.
 
@@ -13,42 +12,43 @@ The official OpenAPI 3 documentation is: [OpenAPI 3.0.0 documentation](https://g
 
 ### Setup
 
-Install OpenJDK 11.
+Install OpenJDK 21.
 
 ### Build project
 
-```
+```bash
 gradlew clean build
 ```
 
 ### Run project
 
-```
+```bash
 java -jar build/libs/object-converter-0.0.2-SNAPSHOT.jar <Java-class-canonical-name>
 ```
 
 __Example:__
 
-```
+```bash
 java -jar build/libs/object-converter-0.0.2-SNAPSHOT.jar de.mcella.openapi.v3.objectconverter.Example
 ```
 
-The generated OpenAPI 3 document is the file "build/libs/openapi.yaml".
+The generated OpenAPI 3 document is at "build/libs/" and named "openapi.yaml".
 
 __Example with external class:__
 
-```
+```bash
 javac example-external\src\* -d example-external\classes
 ```
 
 Windows:
 
+```bash
+java -cp "build\libs\*;example-external\classes" de.mcella.openapi.v3.objectconverter.ObjectConverterMain  de.mcella.openapi.v3.objectconverter.example.ExampleFromExternal
 ```
-java -cp build\libs\*;example-external\classes de.mcella.openapi.v3.objectconverter.ObjectConverterMain  de.mcella.openapi.v3.objectconverter.example.ExampleFromExternal
-```
+
 Linux and MacOS:
 
-```
+```bash
 java -cp "build/libs/*:example-external/classes:." de.mcella.openapi.v3.objectconverter.ObjectConverterMain de.mcella.openapi.v3.objectconverter.example.ExampleFromExternal
 ```
 
@@ -58,7 +58,7 @@ The generated OpenAPI 3 document is a file named "build/libs/openapi.yaml".
 
 Run the following gradle command to validate the generated OpenAPI 3 document:
 
-```
+```bash
 gradlew openApiValidate
 ```
 
@@ -75,6 +75,7 @@ The generated OpenAPI 3 document is a single and complete OpenAPI 3 document wit
 The converted Java class is inserted as a Schema Object into a sample POST request with body content "application/json".
 
 Assumptions:
+
 - The Schema Object does not contain Reference Objects
 - The Schema Object contains a subset of the available OpenAPI specification properties
 - The application does not support composition and inheritance using the "allOf" and "discriminator" properties
@@ -100,6 +101,7 @@ The application supports both Java primitive types and Java wrapper classes.
 ### Features
 
 The application supports the conversion of:
+
 - Java primitive and Java wrapper classes
 - Custom classes
 - Lists (with a defined Generic Class)

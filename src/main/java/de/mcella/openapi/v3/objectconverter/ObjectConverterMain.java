@@ -2,7 +2,7 @@ package de.mcella.openapi.v3.objectconverter;
 
 public class ObjectConverterMain {
 
-  public static void main(String... arguments) {
+  public static void main(String[] arguments) {
     if (arguments.length == 1) {
       if (arguments[0].equals("--help") || arguments[0].equals("help")) {
         printHelp();
